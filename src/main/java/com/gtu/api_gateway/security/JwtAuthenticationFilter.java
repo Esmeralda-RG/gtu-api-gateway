@@ -23,6 +23,7 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
     private final List<String> excludedPaths = List.of(
             "/api/auth",
+            "/api/assign_driver",
             "/swagger-ui",
             "/v3/api-docs",
             "/swagger-resources"
