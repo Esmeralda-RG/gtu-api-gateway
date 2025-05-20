@@ -35,12 +35,20 @@ public class RouteConfig {
                     .rewritePath("/api/user-management/(?<segment>.*)", SEGM_STRING)
                 )
                 .uri("lb://gtu-users-management-service"))
+
             .route("auth", r -> r
                 .path("/api/auth/**")
                 .filters(f -> f
                     .rewritePath("/api/auth/(?<segment>.*)", SEGM_STRING)
                 )
                 .uri("lb://gtu-auth-service"))
+
+            .route("assign_drvier", r -> r
+                .path("/api/assign_driver/**")
+                .filters(f -> f
+                    .rewritePath("/api/assign_driver/(?<segment>.*)", SEGM_STRING)
+                )
+                .uri("lb://gtu-assign-driver-service"))
             .build();
     }
 }
