@@ -43,12 +43,12 @@ public class RouteConfig {
                 )
                 .uri("lb://gtu-auth-service"))
 
-            .route("assign_driver", r -> r
-                .path("/api/assign_driver/**")
+            .route("assign-driver", r -> r
+                .path("/api/assign-driver/**")
                 .filters(f -> f
-                    .rewritePath("/api/assign_driver/(?<segment>.*)", SEGM_STRING)
+                    .rewritePath("/api/assign-driver/(?<segment>.*)", SEGM_STRING)
                 )
-                .uri("lb://drivers_assignment_management_service"))
+                .uri("lb://drivers-assignment-management-service"))
             .build();
     }
 }
