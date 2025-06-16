@@ -49,6 +49,13 @@ public class RouteConfig {
                     .rewritePath("/api/assign-driver/(?<segment>.*)", SEGM_STRING)
                 )
                 .uri("lb://drivers-assignment-management-service"))
+            .route("driver-tracker", r -> r
+                .path("/api/driver-tracker/**")
+                .filters(f -> f
+                    .filter(jwtFilter)
+                    .rewritePath("/api/driver-tracker/(?<segment>.*)", SEGM_STRING)
+                )
+                .uri("lb://gtu-driver-tracker"))
             .build();
     }
 }
