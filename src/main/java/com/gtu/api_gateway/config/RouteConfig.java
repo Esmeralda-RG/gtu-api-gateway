@@ -57,7 +57,7 @@ public class RouteConfig {
                 )
                 .uri("lb://gtu-driver-tracker"))
             .route("driver-tracker-websocket", r -> r
-                .path("/ws/tracking")
+                .path("/ws/tracking/**")
                 .uri("lb://gtu-driver-tracker"))
             .build();
     }
