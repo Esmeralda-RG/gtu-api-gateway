@@ -56,6 +56,9 @@ public class RouteConfig {
                     .rewritePath("/api/driver-tracker/(?<segment>.*)", SEGM_STRING)
                 )
                 .uri("lb://gtu-driver-tracker"))
+            .route("driver-tracker-websocket", r -> r
+                .path("/ws/tracking")
+                .uri("lb://gtu-driver-tracker"))
             .build();
     }
 }
