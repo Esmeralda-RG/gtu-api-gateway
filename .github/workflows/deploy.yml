@@ -38,6 +38,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             cd ~/deploy/${{ github.event.repository.name }}
+            echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" > .env
+            echo "CORS_ORIGIN=${{ secrets.CORS_ORIGIN }}" >> .env
             docker compose down --remove-orphans
             docker compose build
             docker compose up -d --remove-orphans
