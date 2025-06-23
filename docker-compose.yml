@@ -9,6 +9,7 @@ services:
       - EUREKA_SERVER_PORT=8761
       - GATEWAY_PORT=8080
       - JWT_SECRET=LbKuwcGpBGZm5tKJ7MmYQa9NfKtJzYMkVwsDsbUwKyA=
+      - CORS_ORIGIN=${CORS_ORIGIN}
     networks:
       - shared_network
 networks:
